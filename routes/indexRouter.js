@@ -7,17 +7,18 @@ let messages = [
     {
         text: "Hi there",
         user: "Amando",
-        added: new Date()
+        added: new Date().toLocaleString()
     },
     {
-        test: "Hello world",
+        text: "Hello world",
         user: "Charles",
-        added: new Date()
+        added: new Date().toLocaleString()
     }
 ];
 
 indexRouter.get("/", (req, res) => {
-    res.render("index", {});
+   
+    res.render("index", {messages : messages});
 })
 
 indexRouter.get("/new", (req, res) => {

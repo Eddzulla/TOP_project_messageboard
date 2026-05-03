@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <link rel="stylesheet" href="/styles.css">
+    <title>Msg app</title>
 </head>
 <body>
-    <h1>This is the home page for messaging app</h1>
+    <%- include('../components/navbar') -%>
+
+    <% messages.forEach((message) => { %>
+    <%- include('../components/messageBox', {message: message});  %>
+    <% }); %>
+    
     
 </body>
 </html>
