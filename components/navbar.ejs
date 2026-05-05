@@ -1,13 +1,15 @@
-<header>
+<nav>
 <h1>Msg boarder </h1>
 <h2>Let everyone know what's on your mind!</h2>
 <p class="thicker">This is a TOP project</p>
 <ul>
-    <%# for links %>
+    <% for (let i = 0; i<links.length; i++){ %>
     <li>
-       <%#  <a href="links link"></a> %>
-        <%# <span>links text</span> %>
+        <a href="<%= links[i].href %>">
+        <button><%= links[i].name %></button>
+        </a>
     </li>
+    <% }; %>
 </ul>
 <div class="navbar-separator"></div>
-</header>
+</nav>

@@ -16,15 +16,29 @@ let messages = [
     }
 ];
 
+const links = [
+    {"name": "Home", "href" : "/"},
+    {"name": "Post", "href": "/new"},
+    ];
+
 indexRouter.get("/", (req, res) => {
-   
-    res.render("index", {messages : messages});
+    res.render("index", {messages : messages, links: links});
 })
 
 indexRouter.get("/new", (req, res) => {
-    res.render("new_message", {});
+    res.render("form", {links: links});
 })
-// routes here
+
+indexRouter.post("/new", (req, res) => {
+    console.log(req.body.name);
+    messages.push({
+        text: req.body.msg,
+        user: req.body.name,
+        added: new Date().toLocaleString(),
+    });
+    res.redirect("/");
+});
+
 
 
 module.exports = indexRouter;

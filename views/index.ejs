@@ -7,7 +7,7 @@
     <title>Msg app</title>
 </head>
 <body>
-    <%- include('../components/navbar') -%>
+    <%- include('../components/navbar', {links: links}); -%>
 
     <% messages.forEach((message) => { %>
     <%- include('../components/messageBox', {message: message});  %>
