@@ -9,9 +9,15 @@
 <body>
     <%- include('../components/navbar', {links: links}); -%>
 
-    <% messages.forEach((message) => { %>
-    <%- include('../components/messageBox', {message: message});  %>
-    <% }); %>
+    
+    <% for (let i = 0; i<messages.length; i++) { %>
+        <div class="dynamic_msg">
+        <a class="msg" href="msg/<%= i %>">
+    <%- include('../components/messageBox', {message: messages[i]});  %>
+    </a>
+    </div>
+    <% }; %>
+    
     
     
 </body>

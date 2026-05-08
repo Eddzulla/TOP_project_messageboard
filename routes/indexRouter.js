@@ -31,12 +31,21 @@ indexRouter.get("/new", (req, res) => {
 
 indexRouter.post("/new", (req, res) => {
     console.log(req.body.name);
+    
     messages.push({
         text: req.body.msg,
         user: req.body.name,
         added: new Date().toLocaleString(),
     });
     res.redirect("/");
+});
+
+indexRouter.get("/msg/:id", (req,res) => {
+    const { id } = req.params;
+    const message = messages[id];
+
+    res.render("msg", {links: links, message: message});
+
 });
 
 
